@@ -4,7 +4,7 @@ import './LoginPage.css'; // Optional for custom styling
 
 const LoginPage = () => {
   const handleLogin = () => {
-    window.location.href = 'http://192.168.31.38:8081/login';
+    window.location.href = 'https://aspirantsclub.netlify.app/login';
   };
 
   return (

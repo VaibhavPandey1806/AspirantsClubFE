@@ -10,7 +10,7 @@ const OAuthCallback = () => {
         const fetchAccessToken = async () => {
             try {
                 // You may need to change the endpoint according to your backend setup
-                const response = await fetch('http://192.168.31.38:8081/oauth2/callback', {
+                const response = await fetch('https://aspirantsclub.netlify.app/oauth2/callback', {
                     method: 'GET',
                     credentials: 'include', // This allows cookies and HTTP Auth information to be included
                 });
