@@ -1,0 +1,190 @@
+.aspirants-club {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  letter-spacing: -0.02em;
+  line-height: 120%;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  max-width: 100%;
+}
+.heading {
+  width: 2945px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 265px 0 266px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.start-answering {
+  position: relative;
+  font-size: var(--font-size-xl);
+  line-height: 130%;
+  font-weight: 600;
+  font-family: var(--font-newsreader);
+  color: var(--color-white);
+  text-align: left;
+}
+.button,
+.button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.button {
+  cursor: pointer;
+  border: 0;
+  padding: 19px 32px;
+  background-color: var(--color-darkolivegreen);
+  flex: 1;
+  border-radius: var(--br-5xs);
+  overflow: hidden;
+}
+.button:hover {
+  background-color: var(--color-olivedrab);
+}
+.button-container {
+  width: 2933px;
+  padding: 0 1353px 880px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.what-we-believe {
+  align-self: stretch;
+  position: relative;
+  letter-spacing: 0.04em;
+  line-height: 160%;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.belief-heading {
+  width: 181px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5px 0 0;
+  box-sizing: border-box;
+}
+.welcome-to-aspirants {
+  width: 822px;
+  position: relative;
+  font-size: var(--font-size-xl);
+  line-height: 160%;
+  display: inline-block;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+.belief-content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 100%;
+  gap: var(--gap-xl);
+}
+.beliefs,
+.homepage {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.beliefs {
+  width: 1326px;
+  flex-direction: row;
+  padding: 0 6px;
+  max-width: 100%;
+  text-align: left;
+  font-size: 14px;
+  font-family: var(--font-inter);
+}
+.homepage {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-white);
+  overflow: hidden;
+  flex-direction: column;
+  padding: 28px 49px 1289px 90px;
+  gap: 125px;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  font-size: 64px;
+  color: var(--color-black);
+  font-family: var(--font-newsreader);
+}
+@media screen and (max-width: 1200px) {
+  .heading {
+    padding-left: 133px;
+    padding-right: 132px;
+    box-sizing: border-box;
+  }
+  .button-container {
+    padding-left: var(--padding-657xl);
+    padding-right: var(--padding-657xl);
+    box-sizing: border-box;
+  }
+  .belief-content {
+    flex-wrap: wrap;
+  }
+  .homepage {
+    gap: 62px;
+    padding-left: 45px;
+    padding-right: 24px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .aspirants-club {
+    font-size: 51px;
+    line-height: 61px;
+  }
+  .button-container {
+    padding-bottom: 572px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 750px) {
+  .button-container,
+  .heading {
+    padding-left: var(--padding-47xl);
+    padding-right: var(--padding-47xl);
+    box-sizing: border-box;
+  }
+  .button-container {
+    padding-left: var(--padding-319xl);
+    padding-right: var(--padding-319xl);
+    padding-bottom: 372px;
+  }
+  .homepage {
+    gap: 31px;
+    padding-left: 22px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .aspirants-club {
+    font-size: 38px;
+    line-height: 46px;
+  }
+  .button-container,
+  .heading {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .welcome-to-aspirants {
+    font-size: var(--font-size-base);
+    line-height: 26px;
+  }
+  .homepage {
+    gap: 16px;
+  }
+}

@@ -1,0 +1,58 @@
+.user-responses {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    /* max-width: 800px; */
+    /* margin: auto; */
+    background-color: #f9f9f9;
+    /* border-radius: 8px; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-responses h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .response-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .response-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+  }
+  
+  .question-text {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .response-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .time-taken {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .status {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .correct {
+    color: green;
+  }
+  
+  .incorrect {
+    color: red;
+  }
+  

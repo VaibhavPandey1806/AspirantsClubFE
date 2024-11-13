@@ -1,0 +1,131 @@
+.aspirants-club1 {
+    margin: 0;
+    align-self: stretch;
+    position: relative;
+    font-size: inherit;
+    letter-spacing: -0.01em;
+    line-height: 100%;
+    font-weight: 600;
+    font-family: inherit;
+  }
+  .subnavigation {
+    width: 317px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-lg) 0 0;
+    box-sizing: border-box;
+  }
+  .my-profile,
+  .newstand,
+  .shop,
+  .who-we-are {
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 41px;
+    height: 21px;
+    min-width: 41px;
+  }
+  .my-profile,
+  .newstand,
+  .who-we-are {
+    left: 87px;
+    width: 78px;
+    min-width: 78px;
+  }
+  .my-profile,
+  .who-we-are {
+    left: 212px;
+    width: 92px;
+    min-width: 92px;
+    white-space: nowrap;
+  }
+  .my-profile {
+    left: 350px;
+    width: 78px;
+    min-width: 78px;
+  }
+  .links {
+    align-self: stretch;
+    height: 21px;
+    position: relative;
+  }
+  .inner-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 0 var(--padding-base-5);
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .submit-your-question {
+    flex: 1;
+    position: relative;
+    font-size: var(--font-size-base);
+    line-height: 130%;
+    font-weight: 600;
+    font-family: var(--font-inter);
+    color: var(--color-white);
+    text-align: center;
+  }
+  .cart-button {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-mid-5) var(--padding-4xs) var(--padding-base-5)
+      var(--padding-xs);
+    background-color: var(--color-darkolivegreen);
+    width: 191px;
+    border-radius: var(--br-5xs);
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+  .cart-button:hover {
+    background-color: var(--color-olivedrab);
+  }
+  .content,
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+  }
+  .content {
+    width: 653px;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: var(--gap-16xl);
+    text-align: center;
+    font-size: var(--font-size-base);
+    color: var(--color-black);
+    font-family: var(--font-inter);
+  }
+  .navigation {
+    align-self: stretch;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 0 var(--padding-49xl);
+    box-sizing: border-box;
+    gap: var(--gap-xl);
+    text-align: left;
+    font-size: var(--font-size-21xl);
+    color: var(--color-darkolivegreen);
+    font-family: var(--font-newsreader);
+  }
+  @media screen and (max-width: 750px) {
+    .content {
+      gap: var(--gap-mid);
+    }
+  }
+  

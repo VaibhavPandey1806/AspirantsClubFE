@@ -1,0 +1,118 @@
+/* src/components/Categories.css */
+
+.categories-container {
+    margin-top: 70px;
+    padding: 20px;
+  }
+  
+  .category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .category-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .category-item input[type="checkbox"] {
+    display: none; /* Hide default checkbox */
+  }
+  
+  /* Custom checkbox style */
+  .category-item label {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  a {
+    list-style-type: none;
+  text-decoration: none;
+  color: #063559;
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+  }
+  
+  /* Checked state styling */
+  .category-item input[type="checkbox"]:checked + label {
+    background-color: #063559;
+    color: white;
+  }
+  
+  /* Add a subtle shadow */
+  .category-item label:hover {
+    background-color: #52cc70;
+  }
+  
+  .questions-list {
+    list-style-type: none;
+  text-decoration: none;
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+
+  }
+  
+  .question-item {
+    color: blue;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    list-style-type: none;
+  text-decoration: none;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+  
+  
+  .question-item:hover {
+    background-color: #e0e0e0;
+  }
+
+  .topic-list {
+    display: flex;
+    flex-wrap: wrap; /* Allows the topics to wrap to the next line if needed */
+    gap: 10px; /* Adds space between topics */
+    justify-content: flex-start; /* Aligns the topics to the left */
+  }
+  
+  .topic-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adds some space between rows if wrapping occurs */
+  }
+  
+  .topic-item input {
+    margin-right: 5px; /* Space between checkbox and label */
+  }
+  
+  .topic-item label {
+    font-size: 14px;
+  }
+  
+  

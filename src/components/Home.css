@@ -1,0 +1,102 @@
+/* src/components/Home.css */
+
+.home-container {
+    background-color: #f2f6f8; /* Background color */
+    color: #063559; /* Text color */
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .header-right {
+    display: flex;
+  }
+  
+  .auth-button {
+    background-color: transparent;
+    color: #063559; /* Text color */
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 16px;
+  }
+  
+  .hero-text {
+    max-width:fit-content;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: -3px;
+    line-height: 1.1;
+    text-align: left;
+  }
+  
+  .button-container {
+    margin: 20px 0;
+    /* margin-left: 0; */
+    align-self: start;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    word-break: break-word
+
+  }
+  
+  .main-button {
+    background-color: #f8fbfd; /* Button color */
+    color: #131414; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    word-break: break-word
+    
+  }
+  
+  .main-button:hover {
+    background-color: #063559; /* Darker shade on hover */
+  }
+  
+  .header-line {
+    height: 2px;
+    background-color: #063559; /* Line color */
+    width: 100%;
+  }
+  
