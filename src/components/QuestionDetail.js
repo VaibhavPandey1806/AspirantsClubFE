@@ -319,38 +319,41 @@ const QuestionDetail = () => {
     ? question.questionText
     : `${question.questionText}?`;
 
-  return (
-    <div className="question-detail-container">
-      <Header />
-
-      <h2>{displayQuestionText}</h2>
-
-      <div className="question-info">
-        <p>Submitted by: {submittedByName}</p>
-        <p>Posted: {formatDate(question.dateSubmitted)}</p>
-      </div>
-
-      <div className="options">
-        {question.options.map((option) => (
-          <button
-            key={option.id}
-            onClick={() => handleOptionClick(option)}
-            className={selectedOption === option.id ? 'selected' : ''}
-            disabled={selectedOption !== null}
-          >
-            {option.text}
-          </button>
-        ))}
-      </div>
-
-      {isCorrect !== null && (
-        <p className={`result ${isCorrect ? 'correct' : 'incorrect'}`}>
-          {isCorrect ? 'Correct!' : 'Incorrect!'}
-        </p>
-      )}
-
-      <button onClick={handleStartTimer}>Start Timer</button>
-      <p>Timer: {timer} seconds</p>
+    return (
+      <div className="question-detail-container">
+        <Header />
+    
+        <h2>{displayQuestionText}</h2>
+    
+        <div className="question-info">
+          <p>Submitted by: {submittedByName}</p>
+          <p>Posted: {formatDate(question.dateSubmitted)}</p>
+        </div>
+    
+        {/* Only display options if timer is active */}
+        {timerActive && (
+          <div className="options">
+            {question.options.map((option) => (
+              <button
+                key={option.id}
+                onClick={() => handleOptionClick(option)}
+                className={selectedOption === option.id ? 'selected' : ''}
+                disabled={selectedOption !== null}
+              >
+                {option.text}
+              </button>
+            ))}
+          </div>
+        )}
+    
+        {isCorrect !== null && (
+          <p className={`result ${isCorrect ? 'correct' : 'incorrect'}`}>
+            {isCorrect ? 'Correct!' : 'Incorrect!'}
+          </p>
+        )}
+    
+        <button onClick={handleStartTimer}>Start Timer</button>
+        <p>Timer: {timer} seconds</p>
 
       <div className="ai-response">
         <button onClick={fetchAIResponse}>Fetch AI Response</button>

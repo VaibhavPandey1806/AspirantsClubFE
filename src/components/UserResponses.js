@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BASE_URL } from './constants';
+import Header from './Header1';
 
 import './UserResponses.css';
 
@@ -23,6 +24,7 @@ const UserResponses = () => {
 
   return (
     <div className="user-responses">
+      <Header></Header>
       <h2>Your Activity</h2>
       <ul className="response-list">
         {responses.map((item, index) => (
