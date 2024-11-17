@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Register.css';
-
+import { BASE_URL } from './constants';
 const Register = () => {
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
@@ -15,7 +15,7 @@ const Register = () => {
     useEffect(() => {
         const fetchEmail = async () => {
             try {
-                const response = await axios.get('http://localhost:8081/api/getEmail', {
+                const response = await axios.get(`${BASE_URL}/getEmail`, {
                     withCredentials: true,  // Include credentials (cookies, etc.)
                 });
 
@@ -48,7 +48,7 @@ const Register = () => {
 
         try {
             // Send GET request with query parameters
-            const response = await axios.get(`http://localhost:8081/api/addUserfromWeb?${queryParams}`, {
+            const response = await axios.get(`${BASE_URL}/addUserfromWeb?${queryParams}`, {
                 withCredentials: true,  // Include credentials (cookies, etc.)
             });
 

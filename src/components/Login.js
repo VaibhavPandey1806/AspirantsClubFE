@@ -7,7 +7,8 @@ const Login = () => {
     // const navigate = useNavigate(); // Initialize useNavigate
 
     const googleLogin = () => {
-        window.location.href='http://localhost:8081/oauth2/authorization/google'
+       
+        window.location.href='https://aspirantsclub-production.up.railway.app//oauth2/authorization/google'
     };
 
     return (

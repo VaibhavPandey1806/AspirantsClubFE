@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from './constants';
 
 const RedirectPage = () => {
     const navigate = useNavigate(); // For navigation
@@ -9,7 +10,7 @@ const RedirectPage = () => {
         const checkUserExistence = async () => {
             try {
                 // Make an API call to check if the user exists
-                const response = await axios.get('http://localhost:8081/api/isUser', {
+                const response = await axios.get(`${BASE_URL}/isUser`, {
                     withCredentials: true, // Include credentials (cookies, etc.)
                 });
 
