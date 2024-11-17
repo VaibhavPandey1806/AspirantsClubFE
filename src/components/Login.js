@@ -8,7 +8,7 @@ const Login = () => {
 
     const googleLogin = () => {
        
-        window.location.href='https://aspirantsclub-production.up.railway.app//oauth2/authorization/google'
+        window.location.href='https://aspirantsclub-production.up.railway.app/oauth2/authorization/google'
     };
 
     return (
