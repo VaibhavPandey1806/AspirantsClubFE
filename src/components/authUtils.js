@@ -1,7 +1,7 @@
 // authUtils.js
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8081';
+import { BASE_URL } from './constants';
 
 export const checkLogin = async () => {
     try {
