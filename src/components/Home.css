@@ -92,6 +92,7 @@
   
   .main-button:hover {
     background-color: #063559; /* Darker shade on hover */
+    color: #f2f6f8;
   }
   
   .header-line {

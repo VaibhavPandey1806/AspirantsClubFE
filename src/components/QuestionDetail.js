@@ -5,6 +5,7 @@ import './QuestionDetail.css';
 import Header from './Header1';
 import { parse, formatDistanceToNow } from 'date-fns';
 import { BASE_URL } from './constants';
+axios.defaults.withCredentials = true;
 
 const QuestionDetail = () => {
   const { questionId } = useParams();
@@ -276,12 +277,12 @@ const QuestionDetail = () => {
     setTimerActive(false);
 
     try {
-      await axios.post(`${BASE_URL}/addResponse`, {
-        userId,
-        timer,
-        questionId,
-        response: correct,
-      });
+      axios.defaults.withCredentials = true;
+
+      const url = `${BASE_URL}/addResponse?userId=${userId}&timer=${timer}&questionId=${questionId}&response=${correct}`;
+
+      // Send GET request with URL parameters
+      await axios.get(url, { withCredentials: true });
     } catch (error) {
       console.error('Error submitting response:', error);
     }

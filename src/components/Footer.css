@@ -1,0 +1,50 @@
+/* Footer.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Ensures the body takes the full viewport height */
+    display: flex;
+    flex-direction: column; /* Enables a column layout */
+}
+
+main {
+    flex: 1; /* Pushes the footer to the bottom if content is short */
+}
+
+.footer {
+    background-color: #092541; /* Dark blue */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center;
+    text-align: center;
+    margin-top: auto; /* Ensures footer stays at the bottom */
+}
+
+.footer nav {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #66b2ff; /* Lighter blue for hover */
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    color: #ffffff;
+}

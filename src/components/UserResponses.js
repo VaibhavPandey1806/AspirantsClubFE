@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BASE_URL } from './constants';
 import Header from './Header1';
+import axios from 'axios';
 
 import './UserResponses.css';
 
 const UserResponses = () => {
+  axios.defaults.withCredentials = true;
+
   const [responses, setResponses] = useState([]);
 
   useEffect(() => {
@@ -14,7 +17,7 @@ const UserResponses = () => {
 
   const fetchResponses = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/getResponses`);
+      const response = await axios.get(`${BASE_URL}/getResponses`);
       const data = await response.json();
       setResponses(data.responses);
     } catch (error) {

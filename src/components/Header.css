@@ -1,43 +1,54 @@
+/* Header.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  /* font-family: Arial, sans-serif; Optional: Set a default font */
+  height: 100%;
+}
+
 .header {
+  background-color: #092541; /* Dark blue */
+  color: white;
+  padding: 35px 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 5px 20px; /* Add padding for better spacing */
-  background-color: #f5f7f8; /* Background color for visibility */
-  position: fixed; /* Fixed positioning for the header */
-  top: 0; /* Align at the top */
-  left: 0; /* Align at the left */
-  width: 97%; /* Full width */
-  z-index: 1000; /* Ensure the header is above other content */
+  justify-content: space-between;
+  position: fixed; /* Optional: Make the header stick to the top */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
-.club-title {
-  font-size: 32px; /* Adjust font size as needed */
-  color: #063559; /* Text color */
-}
-.sub-title2{
-  margin-left: 20px; /* Spacing between links */
-  color: #141311; /* Text color */
-  text-decoration: none; /* Remove underline */
-  font-size: 18px; /* Adjust font size for nav links */
+.header-left h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #ffffff;
 }
 
-.nav-links a {
-  margin-left: 20px; /* Spacing between links */
-  color: #063559; /* Text color */
-  text-decoration: none; /* Remove underline */
-  font-size: 18px; /* Adjust font size for nav links */
+.header-right nav {
+  display: flex;
+  gap: 15px;
 }
 
-.nav-links a:hover {
-  text-decoration: underline; /* Underline on hover for better UX */
+.nav-link, .login-link, .signup-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
 
-.header-line {
-  width: 100%; /* Make it full width */
-  height: 2px; /* Thickness of the line */
-  background-color: #ba1b15; /* Line color */
-  position: absolute; /* Position it relative to the header */
-  bottom: 0; /* Align to the bottom of the header */
-  left: 0; /* Align to the left */
+.nav-link:hover, .login-link:hover, .signup-link:hover {
+  color: #66b2ff; /* Lighter blue for hover */
+}
+
+.auth-links {
+  margin-left: 20px;
+  font-size: 1rem;
 }
