@@ -1,4 +1,5 @@
 /* General Header Styling */
+
 .header {
   background-color: #092541; /* Dark blue */
   color: white;
@@ -14,9 +15,16 @@
   color: #ffffff;
 }
 
-.header-right nav {
+.header-right {
   display: flex;
-  gap: 15px;
+  align-items: center; /* Ensures alignment */
+  gap: 20px; /* Spacing between nav and auth-links */
+}
+
+.header-right nav {
+  display: flex; /* Ensures nav links are in a row */
+  gap: 15px; /* Spacing between links */
+  white-space: nowrap; /* Prevents wrapping */
 }
 
 .nav-link {

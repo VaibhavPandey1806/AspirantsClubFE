@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './AddQuestion.css';
 import Header from './Header1';
 import { BASE_URL } from './constants';
+import axios from 'axios';
+
+axios.defaults.withCredentials = true;
+
 
 const AddQuestion = () => {
   const [questionText, setQuestionText] = useState('');
@@ -29,8 +33,8 @@ const AddQuestion = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/categories`);
-      const data = await response.json();
+      const response = await axios.get(`${BASE_URL}/categories`);
+      const data = await response.data;
       setCategories(data.map(item => item.name));
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -39,8 +43,8 @@ const AddQuestion = () => {
 
   const fetchTopics = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/topics`);
-      const data = await response.json();
+      const response = await axios.get(`${BASE_URL}/topics`);
+      const data = await response.data;
       setTopics(data.map(item => item.name));
     } catch (error) {
       console.error("Error fetching topics:", error);
@@ -49,8 +53,8 @@ const AddQuestion = () => {
 
   const fetchSources = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/sources`);
-      const data = await response.json();
+      const response = await axios.get(`${BASE_URL}/sources`);
+      const data = await response.data;
       setSources(data.map(item => item.name));
     } catch (error) {
       console.error("Error fetching sources:", error);

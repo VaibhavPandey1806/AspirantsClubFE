@@ -1,61 +1,211 @@
-import React from 'react';
-// import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
-import './Login.css';
-import Header from './Header';
+import React, { useState } from "react";
 
-const Login = () => {
-    // const navigate = useNavigate(); // Initialize useNavigate
+const Register = () => {
+  const [formData, setFormData] = useState({
+    username: "",
+    name: "",
+    email: "",
+    mobile: "",
+    password: "",
+  });
 
-    const googleLogin = () => {
-       
-        window.location.href='https://aspirantsclub-production.up.railway.app/oauth2/authorization/google'
-    };
+  const [message, setMessage] = useState("");
+  const [messageColor, setMessageColor] = useState("red");
 
-    return (
-        <>
-            <div>
-                <Header />
-            </div>
-            <div className="login-container">
-                <h2>Welcome</h2>
+  // Inline CSS styles
+  const styles = {
+    container: {
+      maxWidth: "400px",
+      margin: "50px auto",
+      padding: "20px",
+      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+      borderRadius: "8px",
+      fontFamily: "Arial, sans-serif",
+      backgroundColor: "#f9f9f9",
+    },
+    heading: {
+      textAlign: "center",
+      marginBottom: "20px",
+      fontSize: "1.5em",
+      color: "#333",
+    },
+    form: {
+      display: "flex",
+      flexDirection: "column",
+    },
+    label: {
+      marginBottom: "8px",
+      fontSize: "0.9em",
+      color: "#555",
+    },
+    input: {
+      marginBottom: "16px",
+      padding: "10px",
+      border: "1px solid #ccc",
+      borderRadius: "4px",
+      fontSize: "1em",
+      color: "#333",
+    },
+    button: {
+      padding: "10px",
+      backgroundColor: "#28a745",
+      color: "white",
+      border: "none",
+      borderRadius: "4px",
+      fontSize: "1em",
+      cursor: "pointer",
+      transition: "background-color 0.3s ease",
+      marginBottom: "10px",
+    },
+    buttonSecondary: {
+      padding: "10px",
+      backgroundColor: "#007bff",
+      color: "white",
+      border: "none",
+      borderRadius: "4px",
+      fontSize: "1em",
+      cursor: "pointer",
+      transition: "background-color 0.3s ease",
+    },
+    message: {
+      marginTop: "20px",
+      textAlign: "center",
+      fontSize: "0.9em",
+    },
+  };
 
-                <button className="gsi-material-button" onClick={googleLogin}>
-                    <div className="gsi-material-button-state"></div>
-                    <div className="gsi-material-button-content-wrapper">
-                        <div className="gsi-material-button-icon">
-                            <svg
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 48 48"
-                                xmlnsXlink="http://www.w3.org/1999/xlink"
-                                style={{ display: 'block' }}
-                            >
-                                <path
-                                    fill="#EA4335"
-                                    d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
-                                ></path>
-                                <path
-                                    fill="#4285F4"
-                                    d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"
-                                ></path>
-                                <path
-                                    fill="#FBBC05"
-                                    d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
-                                ></path>
-                                <path
-                                    fill="#34A853"
-                                    d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
-                                ></path>
-                                <path fill="none" d="M0 0h48v48H0z"></path>
-                            </svg>
-                        </div>
-                        <span className="gsi-material-button-contents">Continue with Google</span>
-                        <span style={{ display: 'none' }}>Continue with Google</span>
-                    </div>
-                </button>
-            </div>
-        </>
-    );
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Check username availability
+      const checkResponse = await fetch("http://localhost:8081/api/checkUsername", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: formData.username }),
+      });
+
+      const checkResult = await checkResponse.json();
+
+      if (!checkResult.available) {
+        setMessage("Username is already taken. Please try another.");
+        setMessageColor("red");
+        return;
+      }
+
+      // Add user
+      const addUserResponse = await fetch("http://localhost:8081/api/addUser", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (addUserResponse.ok) {
+        setMessage("");
+        alert("User registered successfully!");
+        window.location.href = "http://localhost:8081/login";
+      } else {
+        setMessage("Failed to register user. Please try again.");
+        setMessageColor("red");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setMessage("An error occurred. Please try again later.");
+      setMessageColor("red");
+    }
+  };
+
+  // Redirect to login page
+  const redirectToLogin = () => {
+    window.location.href = "http://localhost:8081/login";
+  };
+
+  return (
+    <div style={styles.container}>
+      <h2 style={styles.heading}>Register</h2>
+      <form onSubmit={handleSubmit} style={styles.form}>
+        <label style={styles.label} htmlFor="username">
+          Username
+        </label>
+        <input
+          style={styles.input}
+          type="text"
+          id="username"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+          required
+        />
+
+        <label style={styles.label} htmlFor="name">
+          Name
+        </label>
+        <input
+          style={styles.input}
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+
+        <label style={styles.label} htmlFor="email">
+          Email
+        </label>
+        <input
+          style={styles.input}
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+
+        <label style={styles.label} htmlFor="mobile">
+          Mobile
+        </label>
+        <input
+          style={styles.input}
+          type="text"
+          id="mobile"
+          name="mobile"
+          value={formData.mobile}
+          onChange={handleChange}
+          required
+        />
+
+        <label style={styles.label} htmlFor="password">
+          Password
+        </label>
+        <input
+          style={styles.input}
+          type="password"
+          id="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+
+        <button type="submit" style={styles.button}>
+          Register
+        </button>
+      </form>
+      <button onClick={redirectToLogin} style={styles.buttonSecondary}>
+        Already a user? Login
+      </button>
+      {message && <p style={{ ...styles.message, color: messageColor }}>{message}</p>}
+    </div>
+  );
 };
 
-export default Login;
+export default Register;

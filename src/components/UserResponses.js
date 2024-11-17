@@ -18,7 +18,7 @@ const UserResponses = () => {
   const fetchResponses = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/getResponses`);
-      const data = await response.json();
+      const data = await response.data;
       setResponses(data.responses);
     } catch (error) {
       console.error("Error fetching responses:", error);
