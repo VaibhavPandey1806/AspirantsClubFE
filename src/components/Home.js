@@ -5,6 +5,7 @@ import './Home.css';
 import Footer from './Footer';
 import axios from 'axios';
 import Header1 from './Header1';
+import { BASE_URL1 } from './constants';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const Home = () => {
   // Function to check login status by calling `isLogin` API
   const checkIsLoggedIn = async () => {
     try {
-      const response = await axios.get("http://localhost:8081/public/isLogin");
+      const response = await axios.get(`${BASE_URL1}/isLogin`);
      {
         const result = await response.data;
         console.log(result);
