@@ -19,7 +19,12 @@ const UserResponses = () => {
     try {
       const response = await axios.get(`${BASE_URL}/getResponses`);
       const data = await response.data;
+      if(data.id===null){
+
+      }
+      else{
       setResponses(data.responses);
+      }
     } catch (error) {
       console.error("Error fetching responses:", error);
     }

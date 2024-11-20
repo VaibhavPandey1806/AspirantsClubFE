@@ -89,7 +89,7 @@ const Register = () => {
 
     try {
       // Check username availability
-      const checkResponse = await axios.post(`${BASE_URL}/checkUsername`,{username:formData.username});
+      const checkResponse = await axios.post(`${BASE_URL1}/checkUsername`,{username:formData.username});
 
       const checkResult = await checkResponse.data
 
