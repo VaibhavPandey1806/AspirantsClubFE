@@ -101,7 +101,7 @@ const Register = () => {
 
       // Add user
       const addUserResponse = await axios.post(
-        `${BASE_URL}/addUser`,
+        `${BASE_URL1}/addUser`,
         formData, // The request body
         {
             headers: {
