@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BASE_URL,BASE_URL2,BASE_URL1 } from "./constants";
+import {BASE_URL2,BASE_URL1 } from "./constants";
 import axios from "axios";
 
 
