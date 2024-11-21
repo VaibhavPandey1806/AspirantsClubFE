@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import {BASE_URL2,BASE_URL1 } from "./constants";
 import axios from "axios";
-
+import Header from "./Header";
 
 const Register = () => {
   const [formData, setFormData] = useState({
     username: "",
     name: "",
-    email: "",
+    emailId: "",
     mobile: "",
     password: "",
   });
@@ -110,13 +110,15 @@ const Register = () => {
         }
     );
 
-      if (addUserResponse.ok) {
+      if (!addUserResponse || !addUserResponse.responses ) {
+        setMessage("Failed to register user. Please try again.");
+        setMessageColor("red");
+      } else {
+
         setMessage("");
         alert("User registered successfully!");
         window.location.href = `${BASE_URL2}/login`;
-      } else {
-        setMessage("Failed to register user. Please try again.");
-        setMessageColor("red");
+        
       }
     } catch (error) {
       console.error("Error:", error);
@@ -131,7 +133,7 @@ const Register = () => {
   };
 
   return (
-    <div style={styles.container}>
+    <><div><Header></Header></div><div style={styles.container}>
       <h2 style={styles.heading}>Register</h2>
       <form onSubmit={handleSubmit} style={styles.form}>
         <label style={styles.label} htmlFor="username">
@@ -144,8 +146,7 @@ const Register = () => {
           name="username"
           value={formData.username}
           onChange={handleChange}
-          required
-        />
+          required />
 
         <label style={styles.label} htmlFor="name">
           Name
@@ -157,21 +158,19 @@ const Register = () => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          required
-        />
+          required />
 
         <label style={styles.label} htmlFor="email">
           Email
         </label>
         <input
           style={styles.input}
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
+          type="emailId"
+          id="emailId"
+          name="emailId"
+          value={formData.emailId}
           onChange={handleChange}
-          required
-        />
+          required />
 
         <label style={styles.label} htmlFor="mobile">
           Mobile
@@ -183,8 +182,7 @@ const Register = () => {
           name="mobile"
           value={formData.mobile}
           onChange={handleChange}
-          required
-        />
+          required />
 
         <label style={styles.label} htmlFor="password">
           Password
@@ -196,8 +194,7 @@ const Register = () => {
           name="password"
           value={formData.password}
           onChange={handleChange}
-          required
-        />
+          required />
 
         <button type="submit" style={styles.button}>
           Register
@@ -207,7 +204,7 @@ const Register = () => {
         Already a user? Login
       </button>
       {message && <p style={{ ...styles.message, color: messageColor }}>{message}</p>}
-    </div>
+    </div></>
   );
 };
 
