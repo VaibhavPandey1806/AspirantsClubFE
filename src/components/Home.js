@@ -14,14 +14,13 @@ const Home = () => {
   const checkIsLoggedIn = async () => {
     try {
       const response = await axios.get(`${BASE_URL1}/isLogin`);
-     {
+      {
         const result = await response.data;
         console.log(result);
-        return result===true?true:false; // Assume API returns { isLoggedIn: true/false }
+        return result === true ? true : false; // Assume API returns { isLoggedIn: true/false }
       }
-      // return false;
     } catch (error) {
-      console.error("Error checking login status:", error);
+      console.error('Error checking login status:', error);
       return false;
     }
   };
@@ -47,9 +46,8 @@ const Home = () => {
   };
 
   return (
-    <><>
-      <Header1 /> {/* Assuming Header1 shows a generic header */}
-      <div className="home-container">
+      <><Header1 /><><div className="home-container">
+      <div className="main-content">
         <div className="hero-text">
           Your One-Stop Destination for Mastering Competitive Exams—Free
           Resources, Peer Support, and Tools to Help You Succeed
@@ -62,9 +60,9 @@ const Home = () => {
             Access Question Bank
           </button>
         </div>
-        <div className="header-line"></div>
+        
       </div>
-    </><Footer /></>
+    </div><div> <Footer /></div></></>
   );
 };
 

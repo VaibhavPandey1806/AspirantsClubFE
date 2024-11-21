@@ -1,6 +1,7 @@
 /* src/components/Home.css */
 
-.home-container1{
+.home-container{
+  flex: 1;
     background-color: #f2f6f8; /* Background color */
     color: #063559; /* Text color */
     text-align: center;
