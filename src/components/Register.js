@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {BASE_URL2,BASE_URL1 } from "./constants";
+import { BASE_URL2, BASE_URL1 } from "./constants";
 import axios from "axios";
 import Header from "./Header";
 
@@ -89,11 +89,11 @@ const Register = () => {
 
     try {
       // Check username availability
-      const checkResponse = await axios.post(`${BASE_URL1}/checkUsername`,{username:formData.username});
+      const checkResponse = await axios.post(`${BASE_URL1}/checkUsername`, {
+        username: formData.username,
+      });
 
-      const checkResult = await checkResponse.data
-
-      if (!checkResult.available) {
+      if (checkResponse.data && !checkResponse.data.available) {
         setMessage("Username is already taken. Please try another.");
         setMessageColor("red");
         return;
@@ -102,27 +102,34 @@ const Register = () => {
       // Add user
       const addUserResponse = await axios.post(
         `${BASE_URL1}/addUser`,
-        formData, // The request body
+        formData,
         {
-            headers: {
-                "Content-Type": "application/json",
-            },
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-    );
+      );
 
-      if (!addUserResponse || !addUserResponse.responses ) {
-        setMessage("Failed to register user. Please try again.");
-        setMessageColor("red");
-      } else {
-
-        setMessage("");
+      if (addUserResponse.data&&addUserResponse.data.id) {
         alert("User registered successfully!");
         window.location.href = `${BASE_URL2}/login`;
-        
+      } else {
+        setMessage(
+          addUserResponse.data || "Failed to register user. Please try again."
+        );
+        setMessageColor("red");
       }
     } catch (error) {
-      console.error("Error:", error);
-      setMessage("An error occurred. Please try again later.");
+      if (error.response) {
+        // Server-side error
+        setMessage(error.response.data || "An error occurred. Please try again.");
+      } else if (error.request) {
+        // Network error
+        setMessage("Network error. Please check your connection and try again.");
+      } else {
+        // Other errors
+        setMessage("An unexpected error occurred. Please try again later.");
+      }
       setMessageColor("red");
     }
   };
@@ -133,78 +140,88 @@ const Register = () => {
   };
 
   return (
-    <><div><Header></Header></div><div style={styles.container}>
-      <h2 style={styles.heading}>Register</h2>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <label style={styles.label} htmlFor="username">
-          Username
-        </label>
-        <input
-          style={styles.input}
-          type="text"
-          id="username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          required />
+    <>
+      <div>
+        <Header />
+      </div>
+      <div style={styles.container}>
+        <h2 style={styles.heading}>Register</h2>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <label style={styles.label} htmlFor="username">
+            Username
+          </label>
+          <input
+            style={styles.input}
+            type="text"
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
 
-        <label style={styles.label} htmlFor="name">
-          Name
-        </label>
-        <input
-          style={styles.input}
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required />
+          <label style={styles.label} htmlFor="name">
+            Name
+          </label>
+          <input
+            style={styles.input}
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
 
-        <label style={styles.label} htmlFor="email">
-          Email
-        </label>
-        <input
-          style={styles.input}
-          type="emailId"
-          id="emailId"
-          name="emailId"
-          value={formData.emailId}
-          onChange={handleChange}
-          required />
+          <label style={styles.label} htmlFor="email">
+            Email
+          </label>
+          <input
+            style={styles.input}
+            type="email"
+            id="emailId"
+            name="emailId"
+            value={formData.emailId}
+            onChange={handleChange}
+            required
+          />
 
-        <label style={styles.label} htmlFor="mobile">
-          Mobile
-        </label>
-        <input
-          style={styles.input}
-          type="text"
-          id="mobile"
-          name="mobile"
-          value={formData.mobile}
-          onChange={handleChange}
-          required />
+          <label style={styles.label} htmlFor="mobile">
+            Mobile
+          </label>
+          <input
+            style={styles.input}
+            type="text"
+            id="mobile"
+            name="mobile"
+            value={formData.mobile}
+            onChange={handleChange}
+            required
+          />
 
-        <label style={styles.label} htmlFor="password">
-          Password
-        </label>
-        <input
-          style={styles.input}
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          required />
+          <label style={styles.label} htmlFor="password">
+            Password
+          </label>
+          <input
+            style={styles.input}
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
 
-        <button type="submit" style={styles.button}>
-          Register
+          <button type="submit" style={styles.button}>
+            Register
+          </button>
+        </form>
+        <button onClick={redirectToLogin} style={styles.buttonSecondary}>
+          Already a user? Login
         </button>
-      </form>
-      <button onClick={redirectToLogin} style={styles.buttonSecondary}>
-        Already a user? Login
-      </button>
-      {message && <p style={{ ...styles.message, color: messageColor }}>{message}</p>}
-    </div></>
+        {message && <p style={{ ...styles.message, color: messageColor }}>{message}</p>}
+      </div>
+    </>
   );
 };
 
