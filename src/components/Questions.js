@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header from './Header1';
 import { BASE_URL } from './constants';
 import './Categories'; // Assuming the CSS file with the question styles
+import  Footer from './Footer';
 
 const Questions = () => {
   const location = useLocation();
@@ -41,19 +42,19 @@ const Questions = () => {
   }, [selectedCategoryIds, selectedTopicIds, selectedSourceIds]);
 
   return (
-    <div>
-         <Header />
+    <><div>
+      <Header />
       <h2>Questions</h2>
-      <ul className="question-list">
+      <ul className="response-list">
         {questions.map((question) => (
-          <li className="question-item" key={question.id} >
+          <li className="response-item" key={question.id}>
             <Link to={`/question/${question.id}`}>
               {question.questionText}
             </Link>
           </li>
         ))}
       </ul>
-    </div>
+    </div><div><Footer></Footer></div></>
   );
 };
 

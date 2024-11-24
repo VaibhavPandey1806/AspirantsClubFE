@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './QuestionDetail.css';
 import Header from './Header1';
+import Footer from './Footer';
 import { parse, formatDistanceToNow } from 'date-fns';
 import { BASE_URL } from './constants';
 axios.defaults.withCredentials = true;
@@ -186,7 +187,7 @@ const QuestionDetail = () => {
 
   const handleDislike = async (commentId) => {
     try {
-      await axios.post(`${BASE_URL}/dislikeComment`, { id: commentId });
+      await axios.post(`${BASE_URL}/dislikeComment`, null,{params:{ id: commentId }});
       setComments(
         comments.map((comment) =>
           comment.id === commentId
@@ -321,7 +322,7 @@ const QuestionDetail = () => {
     : `${question.questionText}?`;
 
     return (
-        <><Header /><div className="question-detail-container">
+        <><><Header /><div className="question-detail-container">
 
         <h2>{displayQuestionText}</h2>
 
@@ -352,9 +353,9 @@ const QuestionDetail = () => {
           </p>
         )}
 
-<div className='timer'>
-        <button onClick={handleStartTimer}>Start Timer</button>
-        <p>Timer: {timer} seconds</p>
+        <div className='timer'>
+          <button onClick={handleStartTimer}>Start Timer</button>
+          <p>Timer: {timer} seconds</p>
         </div>
 
         <div className="ai-response">
@@ -371,7 +372,7 @@ const QuestionDetail = () => {
             onChange={(e) => setNewComment(e.target.value)} />
           <button onClick={handleAddComment}>Submit Comment</button>
         </div>
-      </div></>
+      </div></><div><Footer></Footer></div></>
   );
 };
 
