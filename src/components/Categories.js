@@ -4,6 +4,7 @@ import axios from 'axios';
 import './Categories.css';
 import Header from './Header1';
 import { BASE_URL } from './constants';
+import Footer from './Footer';
 
 axios.defaults.withCredentials = true;
 
@@ -104,10 +105,10 @@ const Categories = () => {
 
   return (
   
-      <><Header /><div className="categories-column">
+      <><><Header /><div className="topics-column">
       <h2>Select Categories</h2>
       {categories.map((category) => (
-        <div key={category.id} className="category-item">
+        <div key={category.id} className="topic-item">
           <input
             type="checkbox"
             id={category.id}
@@ -133,12 +134,12 @@ const Categories = () => {
             ))}
           </>
         )}
-      </div><div className="sources-column">
+      </div><div className="topics-column">
         {selectedTopicIds.length > 0 && (
           <>
             <h3>Select Sources</h3>
             {sources.map((source) => (
-              <div key={source.id} className="source-item">
+              <div key={source.id} className="topic-item">
                 <input
                   type="checkbox"
                   id={source.id}
@@ -152,10 +153,10 @@ const Categories = () => {
 
 
 
-        <button onClick={handleSubmit} className="submit-button">
+        <button onClick={handleSubmit} className="submit-button1">
           Submit
         </button>
-      </div></>
+      </div></><div><Footer></Footer></div></>
 
   );
 };

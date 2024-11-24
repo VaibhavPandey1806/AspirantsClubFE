@@ -11,12 +11,14 @@ import Login from './components/Login'
 import UserResponses from'./components/UserResponses';
 import RedirectPage from './components/RedirectPage';
 import Register from './components/Register';
+import Profile from './components/Profile';
 const App = () => {
   return (
     <Router>
       <Routes> {/* Update this line */}
         <Route path="/" element={<Home />} /> {/* Update this line */}
         <Route path="/redirect" element={<RedirectPage />} /> {/* Update this line */}
+        <Route path="/profile" element={<Profile />} /> {/* Update this line */}
         <Route path="/register" element={<Register/>} /> {/* Update this line */}
         <Route path="/login" element={<Login />} /> {/* Update this line */}
         <Route path="/add-question" element={<AddQuestion />} /> {/* Update this line */}

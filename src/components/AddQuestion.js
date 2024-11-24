@@ -3,6 +3,7 @@ import './AddQuestion.css';
 import Header from './Header1';
 import { BASE_URL } from './constants';
 import axios from 'axios';
+import Footer from './Footer';
 
 axios.defaults.withCredentials = true;
 
@@ -122,7 +123,7 @@ const AddQuestion = () => {
   };
 
   return (
-    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <><div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Header />
       <div className="add-question-container" style={{ flex: 1 }}>
         <h1 className="add-question-title">Add Question</h1>
@@ -134,8 +135,7 @@ const AddQuestion = () => {
               value={questionText}
               onChange={(e) => setQuestionText(e.target.value)}
               required
-              className={renderInputClass('questionText')}
-            />
+              className={renderInputClass('questionText')} />
           </div>
           <div className="form-group">
             <label>Options:</label>
@@ -147,8 +147,7 @@ const AddQuestion = () => {
                 onChange={(e) => handleOptionChange(option, e.target.value)}
                 required
                 placeholder={`Option ${option}`}
-                className={renderInputClass('options')}
-              />
+                className={renderInputClass('options')} />
             ))}
           </div>
           <div className="correct-answer-options">
@@ -160,8 +159,7 @@ const AddQuestion = () => {
                   name="correctAnswer"
                   checked={correctAnswer === option}
                   onChange={() => setCorrectAnswer(option)}
-                  required
-                />
+                  required />
                 <label>{option}</label>
               </div>
             ))}
@@ -172,14 +170,12 @@ const AddQuestion = () => {
               type="radio"
               value="existing"
               checked={selectedCategoryType === 'existing'}
-              onChange={() => setSelectedCategoryType('existing')}
-            /> Existing
+              onChange={() => setSelectedCategoryType('existing')} /> Existing
             <input
               type="radio"
               value="new"
               checked={selectedCategoryType === 'new'}
-              onChange={() => setSelectedCategoryType('new')}
-            /> New
+              onChange={() => setSelectedCategoryType('new')} /> New
           </div>
           {selectedCategoryType === 'existing' ? (
             <select value={category} onChange={(e) => setCategory(e.target.value)} className={renderInputClass('category')}>
@@ -194,8 +190,7 @@ const AddQuestion = () => {
               value={newCategory}
               onChange={(e) => setNewCategory(e.target.value)}
               required
-              className={renderInputClass('newCategory')}
-            />
+              className={renderInputClass('newCategory')} />
           )}
           <div className="form-group">
             <label>Topic Type:</label>
@@ -203,14 +198,12 @@ const AddQuestion = () => {
               type="radio"
               value="existing"
               checked={selectedTopicType === 'existing'}
-              onChange={() => setSelectedTopicType('existing')}
-            /> Existing
+              onChange={() => setSelectedTopicType('existing')} /> Existing
             <input
               type="radio"
               value="new"
               checked={selectedTopicType === 'new'}
-              onChange={() => setSelectedTopicType('new')}
-            /> New
+              onChange={() => setSelectedTopicType('new')} /> New
           </div>
           {selectedTopicType === 'existing' ? (
             <select value={topic} onChange={(e) => setTopic(e.target.value)} className={renderInputClass('topic')}>
@@ -225,8 +218,7 @@ const AddQuestion = () => {
               value={newTopic}
               onChange={(e) => setNewTopic(e.target.value)}
               required
-              className={renderInputClass('newTopic')}
-            />
+              className={renderInputClass('newTopic')} />
           )}
           <div className="form-group">
             <label>Source Type:</label>
@@ -234,14 +226,12 @@ const AddQuestion = () => {
               type="radio"
               value="existing"
               checked={selectedSourceType === 'existing'}
-              onChange={() => setSelectedSourceType('existing')}
-            /> Existing
+              onChange={() => setSelectedSourceType('existing')} /> Existing
             <input
               type="radio"
               value="new"
               checked={selectedSourceType === 'new'}
-              onChange={() => setSelectedSourceType('new')}
-            /> New
+              onChange={() => setSelectedSourceType('new')} /> New
           </div>
           {selectedSourceType === 'existing' ? (
             <select value={source} onChange={(e) => setSource(e.target.value)} className={renderInputClass('source')}>
@@ -256,13 +246,12 @@ const AddQuestion = () => {
               value={newSource}
               onChange={(e) => setNewSource(e.target.value)}
               required
-              className={renderInputClass('newSource')}
-            />
+              className={renderInputClass('newSource')} />
           )}
           <button type="submit">Submit</button>
         </form>
       </div>
-    </div>
+    </div><div><Footer></Footer></div></>
   );
 };
 

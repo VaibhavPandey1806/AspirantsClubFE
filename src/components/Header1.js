@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Header1.css';
-import { BASE_URL, BASE_URL1 } from './constants';
+import { BASE_URL, BASE_URL1, LOGOUT_URL } from './constants'; // Ensure LOGOUT_URL is defined in constants
 import axios from 'axios';
+
 axios.defaults.withCredentials = true;
 
 const Header1 = () => {
@@ -29,6 +30,11 @@ const Header1 = () => {
         fetchLoginStatus();
     }, []);
 
+    // Handle logout
+    const handleLogout = () => {
+        window.location.href = LOGOUT_URL; // Redirects to the logout URL
+    };
+
     return (
         <header className="header">
             <div className="header-left">
@@ -45,9 +51,11 @@ const Header1 = () => {
                         <div className="dropdown">
                             <span className="username">{username} ▼</span>
                             <div className="dropdown-menu">
-                                <Link to="/your-profile" className="dropdown-item">Your Profile</Link>
+                                <Link to="/profile" className="dropdown-item">Your Profile</Link>
                                 <Link to="/responses" className="dropdown-item">Your Responses</Link>
-                                <Link to="/logout" className="dropdown-item">Logout</Link>
+                                <button className="dropdown-item" onClick={handleLogout}>
+                                    Logout
+                                </button>
                             </div>
                         </div>
                     ) : (

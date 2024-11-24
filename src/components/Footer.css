@@ -24,7 +24,7 @@ main {
     flex-direction: column; /* Stacks items vertically */
     align-items: center;
     text-align: center;
-    margin-top: auto; /* Ensures the footer stays at the bottom */
+    margin-top: 20%; /* Ensures the footer stays at the bottom */
 }
 
 .footer nav {

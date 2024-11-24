@@ -2,8 +2,10 @@
 // export const BASE_URL = 'http://localhost:8081/api';
 // export const BASE_URL1 = 'http://localhost:8081/public';
 // export const BASE_URL2 = 'http://localhost:8081';
+// export const LOGOUT_URL='http://localhost:8081/logout'
 
 
+export const LOGOUT_URL='https://aspirantsclub-production.up.railway.app/logout'
 
 export const BASE_URL = 'https://aspirantsclub-production.up.railway.app/api';
 export const BASE_URL1 = 'https://aspirantsclub-production.up.railway.app/public';
