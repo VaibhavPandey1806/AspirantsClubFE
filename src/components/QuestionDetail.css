@@ -24,6 +24,7 @@ p {
 }
 
 .timer {
+    padding: 5px;
     display: flex; /* Flexbox to align timer */
     justify-content: center; /* Center the timer */
     margin-bottom: 20px; /* Space below the timer */
@@ -54,7 +55,7 @@ p {
 }
 
 button {
-    background-color: #26a69a; /* Button background color */
+    background-color: #092541; /* Button background color */
     color: white; /* Button text color */
     border: none; /* No border */
     border-radius: 5px; /* Rounded corners */
@@ -65,7 +66,7 @@ button {
 }
 
 button:hover {
-    background-color: #1a9b8e; /* Darker background on hover */
+    background-color: #133250; /* Darker background on hover */
 }
 
 button:disabled {

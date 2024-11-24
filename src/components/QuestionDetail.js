@@ -321,16 +321,15 @@ const QuestionDetail = () => {
     : `${question.questionText}?`;
 
     return (
-      <div className="question-detail-container">
-        <Header />
-    
+        <><Header /><div className="question-detail-container">
+
         <h2>{displayQuestionText}</h2>
-    
+
         <div className="question-info">
           <p>Submitted by: {submittedByName}</p>
           <p>Posted: {formatDate(question.dateSubmitted)}</p>
         </div>
-    
+
         {/* Only display options if timer is active */}
         {timerActive && (
           <div className="options">
@@ -346,32 +345,33 @@ const QuestionDetail = () => {
             ))}
           </div>
         )}
-    
+
         {isCorrect !== null && (
           <p className={`result ${isCorrect ? 'correct' : 'incorrect'}`}>
             {isCorrect ? 'Correct!' : 'Incorrect!'}
           </p>
         )}
-    
+
+<div className='timer'>
         <button onClick={handleStartTimer}>Start Timer</button>
         <p>Timer: {timer} seconds</p>
+        </div>
 
-      <div className="ai-response">
-        <button onClick={fetchAIResponse}>Fetch AI Response</button>
-        {aiResponse && <p>{aiResponse}</p>}
-      </div>
+        <div className="ai-response">
+          <button onClick={fetchAIResponse}>Fetch AI Response</button>
+          {aiResponse && <p>{aiResponse}</p>}
+        </div>
 
-      <div className="comments">
-        <h3>Comments</h3>
-        {renderComments()}
-        <textarea
-          placeholder="Add a comment..."
-          value={newComment}
-          onChange={(e) => setNewComment(e.target.value)}
-        />
-        <button onClick={handleAddComment}>Submit Comment</button>
-      </div>
-    </div>
+        <div className="comments">
+          <h3>Comments</h3>
+          {renderComments()}
+          <textarea
+            placeholder="Add a comment..."
+            value={newComment}
+            onChange={(e) => setNewComment(e.target.value)} />
+          <button onClick={handleAddComment}>Submit Comment</button>
+        </div>
+      </div></>
   );
 };
 
