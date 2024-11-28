@@ -1,76 +1,121 @@
+/* AddQuestion.css */
 
-body {
-  margin: 0; /* Remove default body margin */
-  height: 100vh; /* Set body height to full viewport height */
-}
-
-.add-question-container {
-  align-items: center;;
-  background-color: #f7f7f7; /* Same background color */
-  color: #063559; /* Text color */
-  padding: 2px;
-  padding-right: 30%;
-  border-radius: 8px;
-  max-width: auto;
-  margin: 5px; 
-  margin-top: 7%;/* Center the container */
-  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); Optional: add shadow for depth */
-}
-
-.add-question-title {
-  font-size: 40px; /* Title font size */
-  margin-bottom: 20px;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input[type="text"], 
-select {
-  /* width: 100%;
-  padding: 10px;
-  border: 1px solid #62ff88;  */
-
-  background-color: #fff; /* White background for inputs */
-  color: #063559; /* Dark text color */
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+/* Basic reset for margins and padding */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-.submit-button {
-  background-color: #62ff88; /* Submit button color */
-  color: #063559; /* Button text color */
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fa; /* Light background for contrast */
+  color: #333; /* Dark text for readability */
 }
 
-.submit-button:hover {
-  background-color: #063559; /* Slightly darker green on hover */
-}
-.correct-answer-options {
+/* Container for the entire form */
+.add-question-container {
+  max-width: 600px; /* Limit width for larger screens */
+  margin: 40px auto; /* Center the container */
+  padding: 20px; /* Add padding for breathing space */
+  background-color: #fff; /* White background for form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   display: flex;
-  gap: 10px; /* Adds space between the radio buttons */
-  align-items: center; /* Aligns the radio buttons vertically centered */
+  flex-direction: column; /* Stack children vertically */
+}
+
+/* Title styles */
+.add-question-title {
+  font-size: 24px; /* Larger font size for title */
+  margin-bottom: 20px; /* Space below title */
+  color: #007bff; /* Bootstrap primary color */
+}
+
+/* Styles for each form group */
+.form-group {
+  margin-bottom: 15px; /* Space between form groups */
+}
+
+/* Input fields */
+input[type="text"],
+select {
+  width: 100%; /* Full width for inputs */
+  padding: 10px; /* Padding for comfort */
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded corners */
+  transition: border-color 0.3s; /* Smooth transition for focus */
+}
+
+/* Input focus styles */
+input[type="text"]:focus,
+select:focus {
+  border-color: #007bff; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Styles for invalid inputs */
+.input-invalid {
+  border-color: #dc3545; /* Bootstrap danger color for invalid */
+}
+
+/* Correct answer options */
+.correct-answer-options {
+  display: flex; /* Use flexbox for horizontal alignment */
+  align-items: center; /* Center items vertically */
+  margin: 10px 0; /* Space above and below */
+}
+
+.correct-answer-options div {
+  margin-right: 15px; /* Space between each radio button */
+}
+
+/* Remove margin for the last item */
+.correct-answer-options div:last-child {
+  margin-right: 0; /* No margin on the last item */
+}
+
+/* Label styles */
+label {
+  display: block; /* Block label for better alignment */
+  margin-bottom: 5px; /* Space below label */
+  font-weight: bold; /* Bold labels */
+}
+
+/* Radio button styles */
+.correct-answer-options div {
+  margin-bottom: 0; /* Remove margin below radio options */
+}
+
+/* Button styles */
+button {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white; /* White text */
+  padding: 10px; /* Padding for button */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Button text size */
+  transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 600px) {
+  .add-question-container {
+    margin: 20px; /* Reduce margins on smaller screens */
+    padding: 15px; /* Reduce padding */
+  }
+
+  .add-question-title {
+    font-size: 20px; /* Smaller title on mobile */
+  }
+
+  button {
+    font-size: 14px; /* Smaller button text */
+  }
 }
